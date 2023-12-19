@@ -1,0 +1,24 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Local Fictício em São Paulo",
+          "description": "Uma área representativa em São Paulo"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-46.633308, -23.550520], 
+              [-46.632308, -23.551520], 
+              [-46.631308, -23.550520], 
+              [-46.632308, -23.549520], 
+              [-46.633308, -23.550520]  
+            ]
+          ]
+        }
+      }
+    ]
+  }
