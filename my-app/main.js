@@ -7,6 +7,9 @@ import VectorSource from 'ol/source/Vector';
 import { fromLonLat } from 'ol/proj';
 import TileLayer from 'ol/layer/Tile'
 import OSM from 'ol/source/OSM';
+import Draw from 'ol/interaction/Draw';
+import { Polygon } from 'ol/geom';
+
 
 async function loadGeoJson(url) {
   const response = await fetch(url);
@@ -42,6 +45,30 @@ async function initMap() {
       zoom: 16
     }),
   });
+
+  const drawSource = new VectorSource();
+  
+  const drawLayer = new VectorLayer({
+    source: drawSource,
+  });
+
+  map.addLayer(drawLayer);
+
+  const drawInteraction = new Draw({
+    source: drawSource,
+    type: 'Polygon',
+  });
+
+  function toggleDrawMode() {
+    console.log('Clicando botão');
+    if (map.getInteractions().getArray().includes(drawInteraction)) {
+      map.removeInteraction(drawInteraction);
+    } else {
+      map.addInteraction(drawInteraction);
+    }
+  }
+
+  document.getElementById('draw-button').addEventListener('click', toggleDrawMode);
 }
 
 initMap();

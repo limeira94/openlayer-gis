@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Using OpenLayers with Vite</title>
   </head>
   <body>
-    <div id="map"></div>
+    <div id="map">
+      <button id="draw-button"><i class="fa fa-pencil-alt"></i></button>
+        <div id="draw-type-selector" style="display: none; position: absolute; top:50px; left: 10px; z-index: 1000;">
+          <select id="geometry-type">
+            <option value='Polygon'>Polygon</option>
+            <option value='Point'>Point</option>
+            <option value='LineString'>Line</option>
+            <option value='Circle'>Circle</option>
+          </select>
+        </div>
+    </div>
+    
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
